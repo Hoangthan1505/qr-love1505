@@ -62,7 +62,7 @@ function drawText() {
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = `rgba(255, 192, 203, ${textAlpha})`; // Hồng lấp lánh
-  ctx.fillText("Love you", canvas.width / 2, canvas.height / 2);
+  ctx.fillText("Như Ý", canvas.width / 2, canvas.height / 2);
   ctx.restore();
 }
 
