@@ -58,7 +58,7 @@ function drawText() {
   }
 
   ctx.save();
-  ctx.font = "bold 30px Arial";
+  ctx.font = "bold 20px Arial";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = `rgba(255, 192, 203, ${textAlpha})`; // Hồng lấp lánh
