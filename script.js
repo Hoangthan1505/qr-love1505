@@ -1,11 +1,11 @@
 // QR code
-new QRCode(document.getElementById("qrcode"), {
-  text: "https://hoangthan1505.github.io/qr-love1505/", // <-- Thay bằng link bạn muốn
-  width: 120,
-  height: 120,
-  colorDark: "#000000",
-  colorLight: "#ffffff",
-});
+ // new QRCode(document.getElementById("qrcode"), {
+  //text: "https://hoangthan1505.github.io/qr-love1505/", // <-- Thay bằng link bạn muốn
+  //width: 120,
+  //height: 120,
+  //colorDark: "#000000",
+  //colorLight: "#ffffff",
+//});
 
 // Canvas heart animation
 const canvas = document.getElementById("heart-canvas");
