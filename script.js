@@ -15,6 +15,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const particles = [];
+let textAlpha = 1;
+let alphaDirection = -0.01; // Dùng cho hiệu ứng lấp lánh
 
 function heartFunction(t) {
   const x = 16 * Math.pow(Math.sin(t), 3);
@@ -48,18 +50,37 @@ class Particle {
   }
 }
 
+function drawText() {
+  // Lấp lánh bằng cách thay đổi alpha
+  textAlpha += alphaDirection;
+  if (textAlpha <= 0.3 || textAlpha >= 1) {
+    alphaDirection *= -1;
+  }
+
+  ctx.save();
+  ctx.font = "bold 48px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = `rgba(255, 192, 203, ${textAlpha})`; // Hồng lấp lánh
+  ctx.fillText("Love you", canvas.width / 2, canvas.height / 2);
+  ctx.restore();
+}
+
 function animate() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
+
+  // Sinh thêm particle theo trái tim
   for (let i = 0; i < 20; i++) {
     const t = Math.random() * 2 * Math.PI;
     const { x, y } = heartFunction(t);
     particles.push(new Particle(centerX + x * 10, centerY - y * 10, t));
   }
 
+  // Vẽ particle
   for (let i = particles.length - 1; i >= 0; i--) {
     const p = particles[i];
     p.update();
@@ -68,6 +89,9 @@ function animate() {
       particles.splice(i, 1);
     }
   }
+
+  // Vẽ chữ lấp lánh
+  drawText();
 
   requestAnimationFrame(animate);
 }
