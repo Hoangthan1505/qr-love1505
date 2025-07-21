@@ -2,15 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Heart QR</title>
+  <title>Heart Love</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    #heart-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .love-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 48px;
+      color: #ff66cc;
+      font-weight: bold;
+      animation: sparkle 2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
+      }
+      50% {
+        opacity: 0.5;
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc;
+      }
+    }
+  </style>
 </head>
 <body>
   <canvas id="heart-canvas"></canvas>
-  <div id="qrcode"></div>
 
-  <!-- QRCode.js từ CDN -->
- <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <div class="love-text">Love you 💖</div>
+
+  <!-- Không cần QR code nữa nên ẩn -->
+  <!-- <div id="qrcode"></div> -->
+
   <script src="script.js"></script>
 </body>
 </html>
